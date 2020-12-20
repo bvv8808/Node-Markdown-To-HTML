@@ -25,7 +25,7 @@ export default (token: string): string => {
       tag = "li";
       break;
     case "`":
-      tag = "p calss='p-impact'";
+      tag = "p class='p-impact'";
       break;
     case "```":
       tag = "code";

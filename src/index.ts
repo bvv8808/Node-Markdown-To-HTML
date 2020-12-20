@@ -1,46 +1,31 @@
 import utils from "./utils";
 
-export default (filename: string): string => {
-  // let curSection = "";
-  // console.log("hi");
-  // for (let line of utils.readFileGen(filename)) {
-  //   let curHtml = "미정";
-  //   const [token, txt] = utils.seperateToken(line);
-  //   // console.log([token, txt]);
-  //   if (token && txt) {
-  //     // SINGLE LINE & SINGLE TOKEN
-  //     if (~["#", "##", "###", "-", "+", "*"].indexOf(token)) {
-  //       // console.log("SINGLE LINE & SINGLE TOKEN");
-  //       if (token === "#" || token === "##" || token === "###") {
-  //         let tagName = "";
-  //         switch (token) {
-  //           case "#":
-  //             tagName = "h1";
-  //             break;
-  //           case "##":
-  //             tagName = "h2";
-  //             break;
-  //           case "###":
-  //             tagName = "h3";
-  //             break;
-  //         }
-  //         curHtml = `<${tagName}>${txt.trimLeft()}</${tagName}>`;
-  //       }
-  //     }
-  //   } else if (txt) {
-  //     // Normal Line
-  //     if (!curSection) curHtml = `<p>${txt.trim()}</p>`;
-  //   } else {
-  //     curSection = "";
-  //     curHtml = "<br/>";
-  //   }
-  //   // console.log(curHtml);
-  // }
+module.exports = (filename: string): string => {
   let result = "";
-  let idx = 0;
+  let stackToken: string[] = [];
   for (let line of utils.readFileGen(filename)) {
-    console.log(`[${idx++}] `, utils.lineToHtml(line));
+    let thisHtml = utils.lineToHtml(line, stackToken);
+
+    // [link] href
+    const openIdx = thisHtml.indexOf("(");
+    if (openIdx !== -1) {
+      const closeIdx = thisHtml.indexOf(")");
+      if (closeIdx) {
+        if (thisHtml.indexOf("<a>") !== -1) {
+          const href = thisHtml.substring(openIdx + 1, closeIdx);
+          thisHtml = thisHtml.replace("<a>", `<a href='${href}'>`);
+          thisHtml = thisHtml.split(`(${href})`).join("");
+        }
+      }
+    }
+
+    // console.log(`[${idx++}] `, thisHtml);
+    // console.log(stackToken);
+    result += thisHtml + "\n";
   }
 
-  return "";
+  if (stackToken[stackToken.length - 1] === "div class='info'")
+    result += "</div>";
+
+  return result;
 };

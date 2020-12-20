@@ -1,8 +1,16 @@
 {
-  "name": "node-markdown-to-html",
-  "version": "1.0.0",
+  "name": "austin-markdown-to-html",
+  "version": "0.0.4",
   "description": "create html code reading markdown file by file system of node",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
+  "keywords": [
+    "md",
+    "markdown",
+    "html",
+    "parse markdown",
+    "markdown to html",
+    "nodw markdown to html"
+  ],
   "scripts": {
     "test": "jest",
     "start": "ts-node src/index.ts"
@@ -11,7 +19,7 @@
     "type": "git",
     "url": "git+https://github.com/bvv8808/Node-Markdown-To-HTML.git"
   },
-  "author": "hyeonwoo",
+  "author": "austin",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/bvv8808/Node-Markdown-To-HTML/issues"
