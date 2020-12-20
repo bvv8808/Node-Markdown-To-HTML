@@ -3,6 +3,9 @@ import utils from "./utils";
 module.exports = (filename: string): string => {
   let result = "";
   let stackToken: string[] = [];
+
+  result += `<div class='md-wrapper' style="">`;
+
   for (let line of utils.readFileGen(filename)) {
     let thisHtml = utils.lineToHtml(line, stackToken);
 
@@ -11,9 +14,9 @@ module.exports = (filename: string): string => {
     if (openIdx !== -1) {
       const closeIdx = thisHtml.indexOf(")");
       if (closeIdx) {
-        if (thisHtml.indexOf("<a>") !== -1) {
+        if (thisHtml.indexOf("<a") !== -1) {
           const href = thisHtml.substring(openIdx + 1, closeIdx);
-          thisHtml = thisHtml.replace("<a>", `<a href='${href}'>`);
+          thisHtml = thisHtml.replace("<a", `<a href='${href}'`);
           thisHtml = thisHtml.split(`(${href})`).join("");
         }
       }
@@ -27,5 +30,6 @@ module.exports = (filename: string): string => {
   if (stackToken[stackToken.length - 1] === "div class='info'")
     result += "</div>";
 
+  result += "</div>";
   return result;
 };

@@ -2,6 +2,21 @@
 import seperateToken from "./seperateToken";
 import tokenToTag from "./tokenToTag";
 
+// tag별 style속성
+const styles = {
+  b: "font-weight: bold;",
+  "p class='p-impact'": "background-color: #aeaeae; display:inline;",
+  "div class='info'": "",
+  a: "",
+  h1: "",
+  h2: "",
+  h3: "",
+  h4: "",
+  h5: "",
+  h6: "",
+  code: "background-color: #aeaeae; white-space: pre; overflow: auto;",
+};
+
 // 멀티라인 태그를 위해 lineToHtml 함수를 처음 호출하는 모듈에서 stackToken을 관리하고 갱신해야함.
 const lineToHtml = (line: string, stackToken: string[] = []): string => {
   // let copiedStackToken = [...stackToken];
@@ -28,7 +43,8 @@ const lineToHtml = (line: string, stackToken: string[] = []): string => {
         else result += `</${tag}>`;
         stackToken.pop();
       } else {
-        result += `<${tag}>`;
+        console.log(`#${tag} `, styles[tag]);
+        result += `<${tag} style="${styles[tag]}">`;
         stackToken.push(tag);
       }
     }

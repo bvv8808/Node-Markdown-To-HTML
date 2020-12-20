@@ -1,5 +1,5 @@
 // import mdToHtml from "../dist";
-const mdToHtml = require("../dist");
+const mdToHtml = require("../src");
 // console.log(mdToHtml);
 console.log("# RESULT # \n", mdToHtml("./test/test.md"));
 
