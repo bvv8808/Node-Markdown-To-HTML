@@ -15,7 +15,7 @@ const readLine = (
     readSize = fs.readSync(fd, buffer, 0, bufferSize, position);
 
     if (readSize > 0) {
-      const temp = buffer.toString("utf8", 0, readSize);
+      const temp = buffer.toString("utf-8", 0, readSize);
       const idx = temp.indexOf("\n");
       // console.log("#", position);
       if (idx > -1) {
