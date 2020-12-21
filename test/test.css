@@ -1,0 +1,47 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+#wrap {
+  width: 70%;
+  height: 80%;
+}
+
+.wd-wrapper {
+  width: 100%;
+  height: 100%;
+  border: 1px solid red;
+}
+
+.info {
+  width: 90%;
+  background-color: #ededed;
+  padding: 10px;
+  border-left: 4px solid green;
+  white-space: pre;
+}
+p {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 5px;
+}
+.p-impact {
+  background-color: #e1e1e1;
+  display: inline-block;
+  /* font-weight: bold; */
+  padding: 0 2px;
+  margin: 0 1px;
+}
+
+code {
+  display: block;
+  background: #f1f1f1;
+  white-space: pre;
+  padding: 5px;
+  width: 90%;
+  font-size: 14px;
+  overflow: auto;
+}

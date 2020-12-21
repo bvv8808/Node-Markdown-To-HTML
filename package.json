@@ -1,6 +1,6 @@
 {
   "name": "austin-markdown-to-html",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "create html code reading markdown file by file system of node",
   "main": "dist/index.js",
   "keywords": [

@@ -18,7 +18,11 @@ const styles = {
 };
 
 // 멀티라인 태그를 위해 lineToHtml 함수를 처음 호출하는 모듈에서 stackToken을 관리하고 갱신해야함.
-const lineToHtml = (line: string, stackToken: string[] = []): string => {
+const lineToHtml = (
+  line: string,
+  stackToken: string[] = [],
+  styles: any
+): string => {
   // let copiedStackToken = [...stackToken];
   let result = "";
   const [valueIsToken, value, rest] = seperateToken(line);
@@ -50,7 +54,7 @@ const lineToHtml = (line: string, stackToken: string[] = []): string => {
     }
   } else {
     if (!stackToken.length) {
-      result += "<p>";
+      result += `<p style=${styles.p}>`;
       stackToken.push("p");
     }
     result += value;
@@ -71,7 +75,7 @@ const lineToHtml = (line: string, stackToken: string[] = []): string => {
       }
     } else return result;
     // return tag && tag !== "div class='info'" ? result + `</${tag}>` : result;
-  } else return result + lineToHtml(rest, stackToken);
+  } else return result + lineToHtml(rest, stackToken, styles);
 };
 
 export default lineToHtml;

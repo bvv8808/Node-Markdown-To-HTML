@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "CommonJS",
     "esModuleInterop": true,
     "target": "es5",
     "moduleResolution": "node",
-    "outDir": "dist",
+    "outDir": "dist2",
     "baseUrl": ".",
     "sourceMap": true,
     "downlevelIteration": true,
