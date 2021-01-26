@@ -44,7 +44,6 @@ const resultHtml = mdToHtml("./something.md", { a: "color: red;" });
 
 >
 
-- 현재 md파일내 한글이 있으면 정상적으로 변환되지 않습니다.
 - 아직 개발 초기 단계이기 때문에 버그가 있고, 지원하지 않는 마크다운 문법들이 다수 존재합니다.
 
 ## Ver.English
@@ -86,5 +85,4 @@ const resultHtml = mdToHtml("./something.md", { a: "color: red;" });
 
 >
 
-- Now, This can transfer only English. not Korean.
 - Now is a childhood of this package so there are many bugs and there are many md grammar that can't transfer.
