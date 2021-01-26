@@ -4,7 +4,7 @@
     "esModuleInterop": true,
     "target": "es5",
     "moduleResolution": "node",
-    "outDir": "dist2",
+    "outDir": "dist",
     "baseUrl": ".",
     "sourceMap": true,
     "downlevelIteration": true,
